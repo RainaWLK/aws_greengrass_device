@@ -1,0 +1,18 @@
+version: '3'
+services:
+  device_publisher:
+    build: .
+    command: python device/basicDiscovery.py --endpoint adw9mfri5w1h2-ats.iot.us-west-2.amazonaws.com --rootCA cert/root-ca-cert.pem --cert cert/publisher.cert.pem --key cert/publisher.private.key --thingName HelloWorld_Publisher --topic 'hello/world/pubsub' --mode publish --message 'Hello, World! Sent from HelloWorld_Publisher'
+    volumes:
+      - ./cert:/app/cert
+    environment:
+    - PYTHONUNBUFFERED=0
+
+  device_subscriber:
+    build: .
+    command: python device/basicDiscovery.py --endpoint adw9mfri5w1h2-ats.iot.us-west-2.amazonaws.com --rootCA cert/root-ca-cert.pem --cert cert/subscriber.cert.pem --key cert/subscriber.private.key --thingName HelloWorld_Subscriber --topic 'hello/world/pubsub' --mode subscribe --message 'Hello, World! Sent from HelloWorld_Subscriber'
+    volumes:
+      - ./cert:/app/cert
+    environment:
+    - PYTHONUNBUFFERED=0
+
