@@ -16,3 +16,18 @@ services:
     environment:
     - PYTHONUNBUFFERED=0
 
+  device_lightcontroller:
+    build: .
+    command: python device/lightController.py --endpoint adw9mfri5w1h2-ats.iot.us-west-2.amazonaws.com --rootCA cert/root-ca-cert.pem --cert cert/f0e880ed2e.cert.pem --key cert/f0e880ed2e.private.key --thingName HelloWorld_Publisher --clientId HelloWorld_Subscriber
+    volumes:
+      - ./cert:/app/cert
+    environment:
+    - PYTHONUNBUFFERED=0
+
+  device_trafficlight:
+    build: .
+    command: python device/trafficLight.py --endpoint adw9mfri5w1h2-ats.iot.us-west-2.amazonaws.com --rootCA cert/root-ca-cert.pem --cert cert/d2d9d6a5d0.cert.pem --key cert/d2d9d6a5d0.private.key --thingName HelloWorld_Subscriber --clientId HelloWorld_Publisher
+    volumes:
+      - ./cert:/app/cert
+    environment:
+    - PYTHONUNBUFFERED=0
