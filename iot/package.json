@@ -1,0 +1,25 @@
+{
+  "name": "iot",
+  "version": "1.0.0",
+  "description": "aws iot registration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RainaWLK/aws_greengrass_device.git"
+  },
+  "author": "RainaWLK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RainaWLK/aws_greengrass_device/issues"
+  },
+  "homepage": "https://github.com/RainaWLK/aws_greengrass_device#readme",
+  "dependencies": {
+    "aws-sdk": "^2.447.0",
+    "aws4": "^1.8.0",
+    "eslint": "^5.16.0",
+    "request": "^2.88.0"
+  }
+}

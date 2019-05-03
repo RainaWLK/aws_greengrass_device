@@ -1,2 +1,4 @@
 *.pem
 *.key
+node_modules/
+cert/*
