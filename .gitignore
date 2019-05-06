@@ -1,4 +1,6 @@
 *.pem
 *.key
+*.csr
+*.crt
 node_modules/
-cert/*
+*.srl
