@@ -1,4 +1,18 @@
-# CA
+# AWS Greengrass Device
+This is a sample code for AWS IoT and Greengrass
+
+## AWS Iot
+```shell
+cd iot
+docker-compose up
+```
+
+## Greengrass
+pending...
+
+## How to make Certificates
+
+### CA
 ```shell
 aws iot get-registration-code
 ```
@@ -33,7 +47,7 @@ A challenge password []:1234
 openssl x509 -req -in verificationCert.csr -CA ../root.crt -CAkey ../root.key -CAcreateserial -out verificationCert.crt -days 500 -sha256
 ```
 
-# Device
+### Device
 
 ```shell
 openssl genrsa -out device1.key 2048
@@ -63,7 +77,7 @@ to be sent with your certificate request
 A challenge password []:
 ```
 
-# for AWS
+### for AWS
 get certificate id
 
 Linux
