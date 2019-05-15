@@ -1,12 +1,11 @@
 const AWS = require('aws-sdk');
 const fs = require('fs');
-const env = require('./env.js');
 const intermediate = fs.readFileSync('cert/intermediate.crt');
 let template_JITP = require('./template_JITP.json');
 
 const iot = new AWS.Iot({
   iot: '2015-05-28',
-  region: env.region
+  region: process.env.REGION
   // other service API versions
 });
 
@@ -52,7 +51,7 @@ async function register() {
     verificationCertificate: verifyCa.toString(), /* required */
     allowAutoRegistration: true,
     registrationConfig: {
-      roleArn: env.arn,
+      roleArn: process.env.ROLE_IOT_PROVISION,
       templateBody: JSON.stringify(template_JITP)
     },
     setAsActive: true

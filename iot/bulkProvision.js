@@ -1,7 +1,6 @@
 const AWS = require('aws-sdk');
 const fs = require('fs');
 const s3 = require('./s3.js');
-const env = require('./env.js');
 let provision_template = require('./provision_template.json');
 
 const iot = new AWS.Iot({
@@ -76,10 +75,10 @@ async function describeTask(taskId) {
 async function go(amount) {
   // prepare device list
   let devicesForm = await genernateBulkDevices(amount);
-  await s3.upload(env.bucket, env.key, devicesForm);
+  await s3.upload(process.env.S3_BUCKET_BULK_PROVISION, process.env.S3_FILE_BULK_PROVISION, devicesForm);
 
   //bulk register into aws iot core
-  let taskId = await bulkRegister(env.bucket, env.s3key);
+  let taskId = await bulkRegister(process.env.S3_BUCKET_BULK_PROVISION, process.env.S3_FILE_BULK_PROVISION);
 
   //trace task
   let t = setInterval(() => {

@@ -7,3 +7,6 @@ services:
       - ../cert:/app/cert
     environment:
     - REGION=us-west-2
+    - ROLE_IOT_PROVISION='arn:aws:iam::12345678:role/iot_provision'
+    - S3_BUCKET_BULK_PROVISION=xxx
+    - S3_FILE_BULK_PROVISION='iot/bulk.json'

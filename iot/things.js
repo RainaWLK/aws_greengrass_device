@@ -1,6 +1,5 @@
 const AWS = require('aws-sdk');
 const fs = require('fs');
-const env = require('./env.js');
 const intermediate = fs.readFileSync('cert/intermediate.crt');
 const provision_template = require('./provision_template.json');
 const certificateid = require('./certificateid.js');
@@ -8,7 +7,7 @@ const certificateid = require('./certificateid.js');
 
 const iot = new AWS.Iot({
   iot: '2015-05-28',
-  region: env.region
+  region: process.env.REGION
   // other service API versions
 });
 
