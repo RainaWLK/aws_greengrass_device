@@ -4,11 +4,11 @@ var mqtt = require('mqtt')
 
 const options = {
   // Necessary only if the server requires client certificate authentication.
-  key: fs.readFileSync('../cert/aws/device4/deviceCert.key'),
-  cert: fs.readFileSync('../cert/aws/device4/deviceCertAndCACert.crt'),
+  key: fs.readFileSync('cert/aws/device4/deviceCert.key'),
+  cert: fs.readFileSync('cert/aws/device4/deviceCertAndCACert.crt'),
 
   // Necessary only if the server uses a self-signed certificate.
-  ca: fs.readFileSync('../cert/intermediate.crt'),
+  ca: fs.readFileSync('cert/intermediate.crt'),
 
   // Necessary only if the server's cert isn't for "localhost".
   //checkServerIdentity: () => { return null; },

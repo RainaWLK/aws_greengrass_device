@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const fs = require('fs');
 const env = require('./env.js');
-const intermediate = fs.readFileSync('../cert/intermediate.crt');
+const intermediate = fs.readFileSync('cert/intermediate.crt');
 const provision_template = require('./provision_template.json');
 const certificateid = require('./certificateid.js');
 

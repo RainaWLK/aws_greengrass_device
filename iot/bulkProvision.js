@@ -19,9 +19,9 @@ class Device {
 
 async function genernateBulkDevices(amount) {
   let csr = new Array();
-  csr.push(fs.readFileSync('../cert/aws/device1/device1.csr'));
-  csr.push(fs.readFileSync('../cert/aws/device2/device2.csr'));
-  csr.push(fs.readFileSync('../cert/aws/device3/device3.csr'));
+  csr.push(fs.readFileSync('cert/aws/device1/device1.csr'));
+  csr.push(fs.readFileSync('cert/aws/device2/device2.csr'));
+  csr.push(fs.readFileSync('cert/aws/device3/device3.csr'));
 
   let devicesForm = "";
 

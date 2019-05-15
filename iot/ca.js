@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const fs = require('fs');
 const env = require('./env.js');
-const intermediate = fs.readFileSync('../cert/intermediate.crt');
+const intermediate = fs.readFileSync('cert/intermediate.crt');
 let template_JITP = require('./template_JITP.json');
 
 const iot = new AWS.Iot({
@@ -44,7 +44,7 @@ async function describe(certificateId) {
 }
 
 async function register() {
-  const verifyCa = fs.readFileSync('../cert/aws/verificationCert.crt');
+  const verifyCa = fs.readFileSync('cert/aws/verificationCert.crt');
 
   console.log(template_JITP);
   let params = {
