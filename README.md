@@ -1,4 +1,7 @@
 # CA
+```shell
+aws iot get-registration-code
+```
 
 ```shell
 openssl genrsa -out verificationCert.key 2048
@@ -18,7 +21,7 @@ State or Province Name (full name) []:Taipei
 Locality Name (eg, city) []:
 Organization Name (eg, company) []:Moxa
 Organizational Unit Name (eg, section) []:
-Common Name (eg, fully qualified host name) []:0325b367b38a5867a13f953bc4a29aa2c71ae077a6dca1fcede86716c931a40a    
+Common Name (eg, fully qualified host name) []: <registration-code>    
 Email Address []:
 
 Please enter the following 'extra' attributes
@@ -60,3 +63,20 @@ to be sent with your certificate request
 A challenge password []:
 ```
 
+# for AWS
+get certificate id
+
+Linux
+```shell
+openssl x509 -in [file.crt] -outform der | sha256sum
+```
+
+Mac OS X
+```shell
+openssl x509 -in [file.crt] -outform der | shasum -a 256
+```
+
+If certification is string format
+```shell
+echo '${cert}' | openssl x509 -outform der | sha256sum
+```

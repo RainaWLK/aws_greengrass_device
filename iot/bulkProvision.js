@@ -79,7 +79,7 @@ async function go(amount) {
   await s3.upload(env.bucket, env.key, devicesForm);
 
   //bulk register into aws iot core
-  let taskId = await bulkRegister(env.bucket, env.key);
+  let taskId = await bulkRegister(env.bucket, env.s3key);
 
   //trace task
   let t = setInterval(() => {

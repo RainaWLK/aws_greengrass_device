@@ -1,9 +1,9 @@
 {
   "Parameters" : {
-      "ThingName" : {
+      "AWS::IoT::Certificate::CommonName" : {
           "Type" : "String"
       },
-      "CertificateId" : {
+      "AWS::IoT::Certificate::Id" : {
           "Type" : "String"    
       }
   },
@@ -11,13 +11,13 @@
       "thing" : {
           "Type" : "AWS::IoT::Thing",
           "Properties" : {
-              "ThingName" : {"Ref" : "ThingName"}
+              "ThingName" : {"Ref" : "AWS::IoT::Certificate::CommonName"}
           }
       },
       "certificate" : {
         "Type" : "AWS::IoT::Certificate",
         "Properties" : {
-            "CertificateId": {"Ref" : "CertificateId"},
+            "CertificateId": {"Ref" : "AWS::IoT::Certificate::Id"},
             "Status" : "ACTIVE"      
         }
       }
