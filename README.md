@@ -44,7 +44,7 @@ A challenge password []:1234
 ```
 
 ```shell
-openssl x509 -req -in verificationCert.csr -CA ../root.crt -CAkey ../root.key -CAcreateserial -out verificationCert.crt -days 500 -sha256
+openssl x509 -req -in verificationCert.csr -CA ../intermediate.crt -CAkey ../intermediate.key -CAcreateserial -out verificationCert.crt -days 500 -sha256
 ```
 
 ### Device
@@ -76,6 +76,12 @@ Please enter the following 'extra' attributes
 to be sent with your certificate request
 A challenge password []:
 ```
+
+generate certificate
+```shell
+openssl x509 -req -in device1.csr -CA intermediate.crt -CAkey intermediate.key -CAcreateserial -out device1.crt -days 500 -sha256
+```
+
 
 ### for AWS
 get certificate id
