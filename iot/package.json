@@ -19,9 +19,9 @@
   "homepage": "https://github.com/RainaWLK/aws_greengrass_device#readme",
   "dependencies": {
     "aws-sdk": "^2.447.0",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "eslint": "^5.16.0",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "jest": "^24.8.0",
     "mqtt": "^2.18.8",
     "request": "^2.88.0"
